@@ -84,9 +84,11 @@ public class MagoDaoImpl implements MagoDao {
 
     @Override
     public List<MagoEntity> findAll() {
+
         // Fíjate que aquí no ponemos la cláusula WHERE. 
         // Al no poner condiciones, la base de datos no filtra nada y nos devuelve TODOS los registros que existan en la tabla "magos".
         // Es como decir: "Dame la lista completa de asistencia del colegio".
+        
         String sql = "SELECT * FROM magos";
         return entityManager.createNativeQuery(sql, MagoEntity.class).getResultList();
     }
