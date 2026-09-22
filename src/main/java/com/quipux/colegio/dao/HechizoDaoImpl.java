@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 // RETO 2: Asegúrate de que esta clase sea reconocida como un repositorio en Spring (anotación de clase)
-
+@Repository 
 public class HechizoDaoImpl implements HechizoDao {
 
     @PersistenceContext
@@ -19,7 +19,7 @@ public class HechizoDaoImpl implements HechizoDao {
     public HechizoEntity guardarHechizo(HechizoEntity hechizo) {
         // RETO 2.3: Usa el EntityManager para persistir (guardar) el hechizo en la Base de Datos.
         // Escribe tu código aquí:
-        
+        entityManager.persist(hechizo);
         return hechizo;
     }
 
@@ -29,7 +29,8 @@ public class HechizoDaoImpl implements HechizoDao {
         // Recuerda usar ":tipo" y luego el setParameter().
         // Reemplaza null por tu código.
         
-        Query query = null; // EJEMPLO CORRECTO: entityManager.createQuery("SELECT h FROM HechizoEntity h WHERE h.tipoMagia = :tipo");
+        Query query = entityManager.createQuery("SELECT h FROM HechizoEntity h WHERE h.tipoMagia = :tipo");
+        query.setParameter("tipo", tipoMagia); // EJEMPLO CORRECTO: entityManager.createQuery("SELECT h FROM HechizoEntity h WHERE h.tipoMagia = :tipo");
         // query.setParameter(...);
         
         return query != null ? query.getResultList() : null;
@@ -39,6 +40,7 @@ public class HechizoDaoImpl implements HechizoDao {
     public HechizoEntity buscarPorNombre(String nombre) {
         // RETO 2.2: Completa la búsqueda segura por nombre
         Query query = entityManager.createQuery("SELECT h FROM HechizoEntity h WHERE h.nombre = :nombre");
+        query.setParameter("nombre", nombre);
         // FALTA: usar setParameter para asignar el valor de 'nombre' al query.
         
         List<HechizoEntity> resultados = query.getResultList();
