@@ -21,13 +21,15 @@ public class HechizoManagerImpl implements HechizoManager {
     public HechizoEntity registrarHechizo(HechizoEntity hechizo) throws Exception {
         
         // RETO 3.1: Validar Reglas Mágicas
-        if (hechizo == null || hechizo.getNombre() == null || hechizo.getNombre().trim().isEmpty()) {
-            throw new Exception("Nombre invalido");
-        }
 
         if (hechizo.getTipoMagia() != null && "Oscura".equalsIgnoreCase(hechizo.getTipoMagia())) {
             throw new Exception("Magia prohibida en el colegio");
         }
+        
+        if (hechizo == null || hechizo.getNombre() == null || hechizo.getNombre().trim().isEmpty()) {
+            throw new Exception("Nombre invalido");
+        }
+
         
         return hechizoDao.guardarHechizo(hechizo);
     }
