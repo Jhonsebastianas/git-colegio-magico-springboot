@@ -12,6 +12,8 @@ import java.util.List;
 // y para que los métodos se ejecuten dentro de una transacción de base de datos.
 // PISTAS: @S... y @T...
 
+@Service
+@Transactional
 public class HechizoManagerImpl implements HechizoManager {
 
     @Autowired
@@ -24,7 +26,12 @@ public class HechizoManagerImpl implements HechizoManager {
         // 2. Si el "tipoMagia" del hechizo es "Oscura", debes lanzar una Exception con el mensaje "Magia prohibida en el colegio".
         
         // Escribe tu código aquí:
-        
+        if ("Oscura".equals(hechizo.getTipoMagia())) {
+            throw new Exception("Magia prohibida en el colegio");
+        }
+        if (hechizo.getNombre() == null || hechizo.getNombre().trim().isEmpty()) {
+            throw new Exception("Nombre invalido");
+        }
         
         return hechizoDao.guardarHechizo(hechizo);
     }
