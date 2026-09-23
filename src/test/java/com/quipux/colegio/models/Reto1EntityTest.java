@@ -29,7 +29,7 @@ public class Reto1EntityTest {
             "El campo id debe tener la anotación @Id");
         assertTrue(idField.isAnnotationPresent(GeneratedValue.class) || idGetter.isAnnotationPresent(GeneratedValue.class),
             "El campo id debe tener la anotación @GeneratedValue");
-        
+
         // 4. Validar Column en nombre
         Field nombreField = HechizoEntity.class.getDeclaredField("nombre");
         Column column = nombreField.getAnnotation(Column.class);
@@ -37,6 +37,7 @@ public class Reto1EntityTest {
             Method nombreGetter = HechizoEntity.class.getDeclaredMethod("getNombre");
             column = nombreGetter.getAnnotation(Column.class);
         }
+        
         assertNotNull(column, "El campo nombre debe tener la anotación @Column");
         assertFalse(column.nullable(), "La columna nombre no debe permitir nulos (nullable = false)");
     }
