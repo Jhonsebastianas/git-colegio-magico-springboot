@@ -6,15 +6,18 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 // RETO 4: Expón las "Puertas del Colegio" (APIs REST) usando anotaciones de Jakarta
 // Agrega la anotación para la ruta principal: "/hechizos"
 // PISTA: @P...
+@Component 
 @Path("/hechizos")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+
 public class HechizoService {
 
     @Autowired

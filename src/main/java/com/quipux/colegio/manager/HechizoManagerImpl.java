@@ -11,6 +11,7 @@ import java.util.List;
 // RETO 3: Agrega las anotaciones de Spring Boot
 @Service
 @Transactional(rollbackFor = Exception.class)
+
 public class HechizoManagerImpl implements HechizoManager {
 
     @Autowired
@@ -33,6 +34,7 @@ public class HechizoManagerImpl implements HechizoManager {
 
     @Override
     @Transactional(readOnly = true)
+    
     public List<HechizoEntity> buscarMagia(String tipoMagia) {
         return hechizoDao.buscarPorTipo(tipoMagia);
     }
