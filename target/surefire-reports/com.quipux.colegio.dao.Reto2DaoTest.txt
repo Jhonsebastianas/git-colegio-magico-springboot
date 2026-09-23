@@ -1,28 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.quipux.colegio.dao.Reto2DaoTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! -- in com.quipux.colegio.dao.Reto2DaoTest
-com.quipux.colegio.dao.Reto2DaoTest.daoDebeUsarSetParameterYPersist -- Time elapsed: 0.014 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: Debes usar persist() para guardar el hechizo ==> expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
-	at com.quipux.colegio.dao.Reto2DaoTest.daoDebeUsarSetParameterYPersist(Reto2DaoTest.java:28)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
-
-com.quipux.colegio.dao.Reto2DaoTest.daoDebeSerRepository -- Time elapsed: 0.002 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: HechizoDaoImpl debe tener la anotación @Repository ==> expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
-	at com.quipux.colegio.dao.Reto2DaoTest.daoDebeSerRepository(Reto2DaoTest.java:19)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s -- in com.quipux.colegio.dao.Reto2DaoTest
