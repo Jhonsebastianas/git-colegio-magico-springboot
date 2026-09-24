@@ -37,7 +37,7 @@ public class HechizoManagerImpl implements HechizoManager {
         
         return hechizoDao.guardarHechizo(hechizo);
     }
-
+    
     @Override
     public List<HechizoEntity> buscarMagia(String tipoMagia) {
         return hechizoDao.buscarPorTipo(tipoMagia);
