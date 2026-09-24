@@ -1,4 +1,4 @@
-package com.quipux.colegio.dao;
+  package com.quipux.colegio.dao;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Repository;
