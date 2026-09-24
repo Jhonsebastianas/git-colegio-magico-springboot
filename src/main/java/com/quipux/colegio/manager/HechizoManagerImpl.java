@@ -11,7 +11,8 @@ import java.util.List;
 // RETO 3: Agrega las anotaciones de Spring Boot para que esta clase sea un Servicio de Lógica
 // y para que los métodos se ejecuten dentro de una transacción de base de datos.
 // PISTAS: @S... y @T...
-
+@Service 
+@Transactional 
 public class HechizoManagerImpl implements HechizoManager {
 
     @Autowired
@@ -25,10 +26,18 @@ public class HechizoManagerImpl implements HechizoManager {
         
         // Escribe tu código aquí:
         
+        if ("Oscura".equals(hechizo.getTipoMagia())) {
+            throw new Exception("Magia prohibida en el colegio");
+        }
+
+        
+        if (hechizo.getNombre() == null || hechizo.getNombre().isEmpty()) {
+            throw new Exception("Nombre invalido");
+        }
         
         return hechizoDao.guardarHechizo(hechizo);
     }
-
+    
     @Override
     public List<HechizoEntity> buscarMagia(String tipoMagia) {
         return hechizoDao.buscarPorTipo(tipoMagia);
