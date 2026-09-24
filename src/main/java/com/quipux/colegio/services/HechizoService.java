@@ -34,7 +34,7 @@ public class HechizoService {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
     }
-
+    
     // RETO 4.2: Endpoint para buscar hechizos por tipo, ej: /hechizos?tipo=Fuego
     // Usa la anotación HTTP correcta para "leer". (PISTA: @G...)
     @GET
