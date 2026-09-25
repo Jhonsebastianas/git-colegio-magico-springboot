@@ -25,14 +25,14 @@ public class HechizoManagerImpl implements HechizoManager {
         // 2. Si el "tipoMagia" del hechizo es "Oscura", debes lanzar una Exception con el mensaje "Magia prohibida en el colegio".
         
         // Escribe tu código aquí:
-        if (hechizo.getNombre() == null || hechizo.getNombre().trim().isEmpty()) {
+        if (hechizo == null || hechizo.getNombre() == null || hechizo.getNombre().trim().isEmpty()) {
             throw new Exception("Nombre invalido");
         }
-        
-        if ("Oscura".equalsIgnoreCase(hechizo.getTipoMagia())) {
+
+        if (hechizo.getTipoMagia() != null && "Oscura".equalsIgnoreCase(hechizo.getTipoMagia().trim())) {
             throw new Exception("Magia prohibida en el colegio");
         }
-        
+
         return hechizoDao.guardarHechizo(hechizo);
     }
 
