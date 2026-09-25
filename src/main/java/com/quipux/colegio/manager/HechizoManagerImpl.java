@@ -12,7 +12,8 @@ import java.util.List;
 // y para que los métodos se ejecuten dentro de una transacción de base de datos.
 // PISTAS: @S... y @T...
 
-@Service @Transactional 
+@Service
+@Transactional(rollbackFor = Exception.class) 
 public class HechizoManagerImpl implements HechizoManager {
 
     @Autowired
