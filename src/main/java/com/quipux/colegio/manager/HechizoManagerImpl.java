@@ -26,10 +26,10 @@ public class HechizoManagerImpl implements HechizoManager {
 
         // Escribe tu código aquí:
         if(hechizo == null || hechizo.getNombre().trim().isEmpty()){
-            throw new IllegalArgumentException("Nombre invalido");
+            throw new Exception("Nombre invalido");
         }
         if("Oscura".equalsIgnoreCase(hechizo.getTipoMagia())){
-            throw new IllegalArgumentException("Magia prohibida en el colegio");
+            throw new Exception("Magia prohibida en el colegio");
         }
         
         return hechizoDao.guardarHechizo(hechizo);
