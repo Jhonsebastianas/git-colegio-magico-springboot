@@ -1,0 +1,7 @@
+com/quipux/colegio/services/MagoService.class
+com/quipux/colegio/models/MagoEntity.class
+com/quipux/colegio/dao/MagoDaoImpl.class
+com/quipux/colegio/manager/MagoManagerImpl.class
+com/quipux/colegio/dao/MagoDao.class
+com/quipux/colegio/config/SwaggerConfig.class
+com/quipux/colegio/manager/MagoManager.class
