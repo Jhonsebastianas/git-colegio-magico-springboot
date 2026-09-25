@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.quipux.colegio.services.Reto4ServiceIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.070 s <<< FAILURE! -- in com.quipux.colegio.services.Reto4ServiceIntegrationTest
-com.quipux.colegio.services.Reto4ServiceIntegrationTest.controllerDebeTenerPathPrincipal -- Time elapsed: 0.033 s <<< FAILURE!
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.102 s <<< FAILURE! -- in com.quipux.colegio.services.Reto4ServiceIntegrationTest
+com.quipux.colegio.services.Reto4ServiceIntegrationTest.controllerDebeTenerPathPrincipal -- Time elapsed: 0.048 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: HechizoService debe tener @Path ==> expected: not <null>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -14,7 +14,7 @@ org.opentest4j.AssertionFailedError: HechizoService debe tener @Path ==> expecte
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 
-com.quipux.colegio.services.Reto4ServiceIntegrationTest.metodosDebenTenerVerbosHTTP -- Time elapsed: 0.010 s <<< FAILURE!
+com.quipux.colegio.services.Reto4ServiceIntegrationTest.metodosDebenTenerVerbosHTTP -- Time elapsed: 0.018 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: crearHechizo debe ser un @POST ==> expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
