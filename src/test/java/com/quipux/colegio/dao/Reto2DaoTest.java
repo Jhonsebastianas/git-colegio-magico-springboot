@@ -1,17 +1,75 @@
 package com.quipux.colegio.dao;
 
+import com.quipux.colegio.models.HechizoEntity;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
+import java.lang.reflect.Field;
+import java.lang.reflect.Proxy;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Repository;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Reto2DaoTest {
+
+    private static final String CONSULTA_POR_TIPO =
+        "SELECT h FROM HechizoEntity h WHERE h.tipoMagia = :tipo";
+    private static final String CONSULTA_POR_NOMBRE =
+        "SELECT h FROM HechizoEntity h WHERE h.nombre = :nombre";
+
+    private EntityManager entityManager;
+    private TypedQuery<HechizoEntity> query;
+    private HechizoDaoImpl dao;
+    private Map<String, Object> parametros;
+    private List<HechizoEntity> resultados;
+    private String consultaEjecutada;
+    private HechizoEntity hechizoPersistido;
+
+    @BeforeEach
+    @SuppressWarnings("unchecked")
+    public void configurarDoblesDePrueba() throws ReflectiveOperationException {
+        parametros = new HashMap<>();
+        resultados = List.of();
+        consultaEjecutada = null;
+        hechizoPersistido = null;
+
+        query = (TypedQuery<HechizoEntity>) Proxy.newProxyInstance(
+                TypedQuery.class.getClassLoader(),
+                new Class<?>[]{TypedQuery.class},
+                (proxy, method, args) -> {
+                    if ("setParameter".equals(method.getName())) {
+                        parametros.put((String) args[0], args[1]);
+                        return proxy;
+                    }
+                    if ("getResultList".equals(method.getName())) {
+                        return resultados;
+                    }
+                    return null;
+                });
+        entityManager = (EntityManager) Proxy.newProxyInstance(
+                EntityManager.class.getClassLoader(),
+                new Class<?>[]{EntityManager.class},
+                (proxy, method, args) -> {
+                    if ("persist".equals(method.getName())) {
+                        hechizoPersistido = (HechizoEntity) args[0];
+                        return null;
+                    }
+                    if ("createQuery".equals(method.getName())) {
+                        consultaEjecutada = (String) args[0];
+                        return query;
+                    }
+                    return null;
+                });
+
+        dao = new HechizoDaoImpl();
+        Field entityManagerField = HechizoDaoImpl.class.getDeclaredField("entityManager");
+        entityManagerField.setAccessible(true);
+        entityManagerField.set(dao, entityManager);
+    }
 
     @Test
     public void daoDebeSerRepository() {
@@ -20,14 +78,43 @@ public class Reto2DaoTest {
     }
 
     @Test
-    public void daoDebeUsarSetParameterYPersist() throws Exception {
-        // Leemos el código fuente para validar que el estudiante usó persist y setParameter
-        // Esto es magia de reflexión combinada con análisis de código
-        String code = new String(Files.readAllBytes(Paths.get("src/main/java/com/quipux/colegio/dao/HechizoDaoImpl.java")));
-        
-        assertTrue(code.contains("entityManager.persist("), "Debes usar persist() para guardar el hechizo");
-        assertTrue(code.contains("setParameter"), "Debes usar setParameter() en tus consultas para evitar Inyección SQL");
-        assertTrue(code.contains(":tipo") || code.contains(":nombre"), "Debes usar parámetros con dos puntos, ej: :tipo");
-        assertFalse(Pattern.compile("\\+\\s*tipoMagia").matcher(code).find(), "¡PELIGRO! Estás concatenando variables en la consulta (Inyección SQL). Usa parámetros.");
+    public void guardarHechizoDebePersistirYDevolverElHechizo() {
+        HechizoEntity hechizo = new HechizoEntity();
+
+        HechizoEntity resultado = dao.guardarHechizo(hechizo);
+
+        assertSame(hechizo, resultado);
+        assertSame(hechizo, hechizoPersistido);
+    }
+
+    @Test
+    public void buscarPorTipoDebeUsarParametroYDevolverResultados() {
+        List<HechizoEntity> hechizos = List.of(new HechizoEntity());
+        resultados = hechizos;
+
+        List<HechizoEntity> resultado = dao.buscarPorTipo("fuego");
+
+        assertSame(hechizos, resultado);
+        assertEquals(CONSULTA_POR_TIPO, consultaEjecutada);
+        assertEquals("fuego", parametros.get("tipo"));
+    }
+
+    @Test
+    public void buscarPorNombreDebeUsarParametroYDevolverElPrimerResultado() {
+        HechizoEntity hechizo = new HechizoEntity();
+        resultados = List.of(hechizo);
+
+        HechizoEntity resultado = dao.buscarPorNombre("Lumos");
+
+        assertSame(hechizo, resultado);
+        assertEquals(CONSULTA_POR_NOMBRE, consultaEjecutada);
+        assertEquals("Lumos", parametros.get("nombre"));
+    }
+
+    @Test
+    public void buscarPorNombreDebeDevolverNullSiNoHayResultados() {
+        assertNull(dao.buscarPorNombre("Desconocido"));
+        assertEquals(CONSULTA_POR_NOMBRE, consultaEjecutada);
+        assertEquals("Desconocido", parametros.get("nombre"));
     }
 }
