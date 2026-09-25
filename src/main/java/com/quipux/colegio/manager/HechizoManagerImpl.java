@@ -12,6 +12,7 @@ import java.util.List;
 // y para que los métodos se ejecuten dentro de una transacción de base de datos.
 // PISTAS: @S... y @T...
 
+@Service @Transactional 
 public class HechizoManagerImpl implements HechizoManager {
 
     @Autowired
@@ -22,9 +23,14 @@ public class HechizoManagerImpl implements HechizoManager {
         // RETO 3.1: Validar Reglas Mágicas
         // 1. Si el nombre del hechizo es nulo o está vacío, debes lanzar una Exception con el mensaje "Nombre invalido".
         // 2. Si el "tipoMagia" del hechizo es "Oscura", debes lanzar una Exception con el mensaje "Magia prohibida en el colegio".
-        
+
         // Escribe tu código aquí:
-        
+        if(hechizo == null || hechizo.getNombre().trim().isEmpty()){
+            throw new IllegalArgumentException("Nombre invalido");
+        }
+        if("Oscura".equalsIgnoreCase(hechizo.getTipoMagia())){
+            throw new IllegalArgumentException("Magia prohibida en el colegio");
+        }
         
         return hechizoDao.guardarHechizo(hechizo);
     }
