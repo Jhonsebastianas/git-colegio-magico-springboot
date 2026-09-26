@@ -1,5 +1,7 @@
 package com.quipux.colegio.models;
 
+import jakarta.persistence.Entity;
+
 // RETO 1: Agrega las anotaciones necesarias para que esta clase sea una Entidad de Base de Datos.
 // PISTAS: 
 // 1. Necesitas marcar la clase con @E...
@@ -7,10 +9,18 @@ package com.quipux.colegio.models;
 // 3. El atributo 'id' debe ser la llave primaria (@I...) y autogenerada (@G...)
 // 4. El atributo 'nombre' debe mapearse a una columna (@C...) y no debe permitir nulos (nullable = false).
 
+
+import jakarta.persistence.*;
+
+@Entity 
+@Table(name = "hechizos")
 public class HechizoEntity {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Column(name = "nombre", nullable = false)
     private String nombre;
     private String tipoMagia; // Ejemplo: Fuego, Agua, Oscura
     private Integer nivelPoder;

@@ -1,8 +1,15 @@
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/config/JerseyConfig.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/dao/HechizoDaoImpl.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/models/HechizoEntity.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/manager/HechizoManagerImpl.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/dao/HechizoDao.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/manager/HechizoManager.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/services/HechizoService.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/ColegioMagicoApplication.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\manager\HechizoManager.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\dao\HechizoDao.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\ColegioMagicoApplication.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\dao\MagoDao.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\config\JerseyConfig.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\manager\MagoManagerImpl.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\manager\HechizoManagerImpl.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\models\MagoEntity.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\dao\HechizoDaoImpl.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\dao\MagoDaoImpl.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\services\HechizoService.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\config\SwaggerConfig.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\manager\MagoManager.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\services\MagoService.java
+C:\Users\Andres Valencia\git-colegio-magico-springboot\src\main\java\com\quipux\colegio\models\HechizoEntity.java
