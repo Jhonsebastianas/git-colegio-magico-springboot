@@ -3,8 +3,6 @@ package com.quipux.colegio.dao;
 import org.junit.jupiter.api.Test;
 import org.springframework.stereotype.Repository;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.regex.Pattern;
