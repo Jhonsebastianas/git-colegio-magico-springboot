@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 // RETO 3: Agrega las anotaciones de Spring Boot para que esta clase sea un Servicio de Lógica
-// y para que los métodos se ejecuten dentro de una transacción de base de datos.
+// y para que los métodos se ejecuten dentro de una transacción de bae de datos.
 // PISTAS: @S... y @T...
 @Service 
 @Transactional
@@ -25,7 +25,7 @@ public class HechizoManagerImpl implements HechizoManager {
         // 2. Si el "tipoMagia" del hechizo es "Oscura", debes lanzar una Exception con el mensaje "Magia prohibida en el colegio".
         
         if (hechizo.getNombre() == null || hechizo.getNombre().isEmpty()) {
-            throw new Exception("Nombre invalido");
+            throw new Exception("Magia prohibida en el colegio");
         }
         
         if ("Oscura".equals(hechizo.getTipoMagia())) {
