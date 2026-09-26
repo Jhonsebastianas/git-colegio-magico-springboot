@@ -1,8 +1,8 @@
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/config/JerseyConfig.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/dao/HechizoDaoImpl.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/models/HechizoEntity.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/manager/HechizoManagerImpl.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/dao/HechizoDao.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/manager/HechizoManager.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/services/HechizoService.java
-/Users/sebastianagudelo/Documents/apps/semillero-magico-2/src/main/java/com/quipux/colegio/ColegioMagicoApplication.java
+/workspaces/git-colegio-magico-springboot/src/main/java/com/quipux/colegio/manager/HechizoManagerImpl.java
+/workspaces/git-colegio-magico-springboot/src/main/java/com/quipux/colegio/manager/HechizoManager.java
+/workspaces/git-colegio-magico-springboot/src/main/java/com/quipux/colegio/config/JerseyConfig.java
+/workspaces/git-colegio-magico-springboot/src/main/java/com/quipux/colegio/ColegioMagicoApplication.java
+/workspaces/git-colegio-magico-springboot/src/main/java/com/quipux/colegio/dao/HechizoDaoImpl.java
+/workspaces/git-colegio-magico-springboot/src/main/java/com/quipux/colegio/models/HechizoEntity.java
+/workspaces/git-colegio-magico-springboot/src/main/java/com/quipux/colegio/dao/HechizoDao.java
+/workspaces/git-colegio-magico-springboot/src/main/java/com/quipux/colegio/services/HechizoService.java
