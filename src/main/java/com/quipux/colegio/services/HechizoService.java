@@ -37,7 +37,7 @@ public class HechizoService {
     // RETO 4.2: Endpoint para buscar hechizos por tipo, ej: /hechizos?tipo=Fuego
     // Usa la anotación HTTP correcta para "leer". (PISTA: @G...)
 
-// RETO 4.2: Endpoint para buscar hechizos por tipo, ej: /hechizos?tipo=Fuego
+// RETO 4.2: Endpoint para buscar hechizos por tipo, ej: hechizos?tipo=Fuego
 // Usa la anotación HTTP correcta para "leer". (PISTA: @G...)
 
     @GET
