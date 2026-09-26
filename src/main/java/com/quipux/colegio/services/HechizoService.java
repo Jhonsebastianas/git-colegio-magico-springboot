@@ -13,6 +13,7 @@ import java.util.List;
 // Agrega la anotación para la ruta principal: "/hechizos"
 // PISTA: @P...
 
+@Path("/hechizos")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class HechizoService {
@@ -22,19 +23,23 @@ public class HechizoService {
 
     // RETO 4.1: Endpoint para crear un hechizo.
     // Usa la anotación HTTP correcta para "crear". (PISTA: @P...)
-    
+    @POST
     public Response crearHechizo(HechizoEntity hechizo) {
         // RETO 4.1.2: Usa try/catch. Si el manager lanza Exception, devuelve un Response con Status.BAD_REQUEST (400)
         // Si todo sale bien, devuelve un Response con Status.CREATED (201) y la entidad.
         // Escribe tu código aquí:
-        
-        return null;
+        try {
+            HechizoEntity hechizoGuardado = hechizoManager.registrarHechizo(hechizo);
+            return Response.status(Response.Status.CREATED).entity(hechizoGuardado).build();
+        } catch (Exception exception) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(exception.getMessage()).build();
+        }
     }
 
     // RETO 4.2: Endpoint para buscar hechizos por tipo, ej: /hechizos?tipo=Fuego
     // Usa la anotación HTTP correcta para "leer". (PISTA: @G...)
-    
-    public Response buscarPorTipo(/* Añade la anotación para leer el query param "tipo" */ String tipo) {
+    @GET
+    public Response buscarPorTipo(@QueryParam("tipo") String tipo) {
         // RETO 4.3: Usa la anotación correcta dentro de los parámetros de arriba (PISTA: @Q...)
         List<HechizoEntity> lista = hechizoManager.buscarMagia(tipo);
         return Response.ok(lista).build();
