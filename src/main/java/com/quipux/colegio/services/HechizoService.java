@@ -37,11 +37,12 @@ public class HechizoService {
     // RETO 4.2: Endpoint para buscar hechizos por tipo, ej: /hechizos?tipo=Fuego
     // Usa la anotación HTTP correcta para "leer". (PISTA: @G...)
 
+// RETO 4.2: Endpoint para buscar hechizos por tipo, ej: /hechizos?tipo=Fuego
+// Usa la anotación HTTP correcta para "leer". (PISTA: @G...)
+
     @GET
-    
-    public Response buscarPorTipo(/* Añade la anotación para leer el query param "tipo" */ String tipo) {
-        // RETO 4.3: Usa la anotación correcta dentro de los parámetros de arriba (PISTA: @Q...)
-        List<HechizoEntity> lista = hechizoManager.buscarMagia(tipo);
-        return Response.ok(lista).build();
+    public Response buscarPorTipo(@QueryParam("tipo") String tipo) {
+    List<HechizoEntity> lista = hechizoManager.buscarMagia(tipo);
+    return Response.ok(lista).build();
     }
 }
